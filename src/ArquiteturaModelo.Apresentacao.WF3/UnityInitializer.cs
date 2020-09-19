@@ -13,8 +13,7 @@ namespace ArquiteturaModelo.Apresentacao.WF3
 
         private static UnityContainer _container;
 
-
-        public static void Initialize()
+         public static void Initialize()
         {
             _container = new UnityContainer();
 
