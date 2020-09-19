@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5E5927A5-E102-4811-9C50-1C7107E6727D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ArquiteturaModelo.Apresentacao.WF2</RootNamespace>
+    <AssemblyName>ArquiteturaModelo.Apresentacao.WF2</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SimpleInjector, Version=4.0.3.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.4.0.3\lib\net45\SimpleInjector.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\Model\Model.cs" />
+    <Compile Include="Base\Model\NotifyAttribute.cs" />
+    <Compile Include="Base\Model\NotifyPropertyChangedObject.cs" />
+    <Compile Include="Base\Validation\DateRangeValidationAttribute.cs" />
+    <Compile Include="Base\Validation\ValidationManager.cs" />
+    <Compile Include="Base\ViewModel\IViewModel.cs" />
+    <Compile Include="Base\ViewModel\ViewModel.cs" />
+    <Compile Include="Base\ViewModel\ViewModelExtensions.cs" />
+    <Compile Include="Base\View\ControlView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Base\View\FormView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\LotacaoModel.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SimpleInjectorInitializer.cs" />
+    <Compile Include="ViewModels\LotacaoViewModel.cs" />
+    <Compile Include="Views\FormLotacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormLotacao.Designer.cs">
+      <DependentUpon>FormLotacao.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Views\FormLotacao.resx">
+      <DependentUpon>FormLotacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ArquiteturaModelo.Aplicacao\ArquiteturaModelo.Aplicacao.csproj">
+      <Project>{cf622d6c-9fc0-4f1d-b91a-3272e7b10c68}</Project>
+      <Name>ArquiteturaModelo.Aplicacao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ArquiteturaModelo.Dominio\ArquiteturaModelo.Dominio.csproj">
+      <Project>{e1127a3a-6f20-4ab4-85ce-94ad0dd67d11}</Project>
+      <Name>ArquiteturaModelo.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ArquiteturaModelo.Infra.Contexto\ArquiteturaModelo.Infra.Contexto.csproj">
+      <Project>{7215ae34-6052-4fb7-b15d-1cf9b487471e}</Project>
+      <Name>ArquiteturaModelo.Infra.Contexto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ArquiteturaModelo.Infra.CrossCutting.IoC\ArquiteturaModelo.Infra.CrossCutting.IoC.csproj">
+      <Project>{22522528-4661-4cee-9d46-6dc5f865e60e}</Project>
+      <Name>ArquiteturaModelo.Infra.CrossCutting.IoC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ArquiteturaModelo.Infra.Repositorio\ArquiteturaModelo.Infra.Repositorio.csproj">
+      <Project>{6c6e86f3-c291-4a89-9d82-a67118c496bd}</Project>
+      <Name>ArquiteturaModelo.Infra.Repositorio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
