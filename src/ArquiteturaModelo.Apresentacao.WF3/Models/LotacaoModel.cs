@@ -80,6 +80,9 @@ namespace ArquiteturaModelo.Apresentacao.WF3.Models
             this.Descricao = dominio.Descricao;
             this.Sigla = dominio.Sigla;
             this.Inativa = dominio.Inativa;
+
+
+
         }
 
 
